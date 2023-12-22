@@ -1,0 +1,61 @@
+{% extends 'shop/layouts/main.html' %}
+{% block title %}
+R.K.T ENTERPRISES 
+{% endblock title %}
+{% block content %}
+{% include 'shop/inc/slider.html' %}
+
+<style>
+    section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #one{
+        padding-top: 50px;
+        min-height: 60vh;  
+    }
+
+    h1{
+        color: blue;
+    }
+    p {
+        font-size: 18px;
+    }
+    #about img {
+        width: 25rem;
+        height: 300px; 
+        border-radius: 30px;
+    }
+
+</style>
+<div class="container">
+    <section id="home">
+        <div class="row" id="one">
+            <div class="col-lg-6 col-md-6 col-12 pt-5">
+                <h1 class="display-4">WELCOME TO <br>R.K.T ENTERPRISES</h1>
+                <p class="my-lg-3 my-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium praesentium corrupti aut inventore fuga dicta ut harum ratione officiis, laboriosam, totam eveniet quasi, labore veritatis qui voluptate minima et natus!</p>
+                <button class="btn btn-info my-lg-3 my-3"><a href="{% url 'collection' %}" style="color: aliceblue;">VIEW PRODUCTS</a></button>
+            </div>
+        
+            <div class="col-lg-6 col-md-6 col-12 py-lg-0 py-3">
+                <img src="static/images/1.jpg" class="img-fluid" alt="image" style="height: 300px;">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" style="min-height: 60vh; padding-bottom: 50px;">
+        <div class="row" >
+            <div class="col-lg-6 col-md-6 col-12 py-0 order-1">
+                <img src="static/images/1.jpg" class="img-fluid" alt="image" style="height: 300px; width: 525px;">
+            </div>
+            <div class="col-lg-6 col-md-6 col-12 pt-0 order-sm-2">
+                <h6 style="font-size: 50px;">About us</h6>
+                <h1>R.K.T ENTERPRISES</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quas esse in sit dolor reiciendis eligendi, perferendis cum ducimus quaerat animi odio, harum iste nostrum veniam id commodi odit laborum!</p>
+                <a href="{% url 'register' %}"><button class="btn btn-info my-3" style="color: aliceblue;">Register</button></a>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock content %}

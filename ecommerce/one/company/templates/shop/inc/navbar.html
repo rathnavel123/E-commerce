@@ -1,0 +1,70 @@
+<style>
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.whatsapp-button a {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.whatsapp-button i {
+    margin-right: 10px;
+}
+
+</style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'home' %}" > R.K.T ENTERPRISES</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="{% url 'home' %}"><i class="fa fa-home"></i>  Home</a>
+        </li>
+        {% if request.user.is_authenticated %}
+        <a href="#" class="nav-link" aria-current="page" ><i class="fa fa-user"></i>{{request.user}}</a>
+        <a class="nav-link" aria-current="page" href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> logout</a>
+        {% else %}
+        
+        <li class="nav-item">
+          <a class="nav-link " href="{% url 'register' %}"><i class="fa fa-users"></i> Register </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{% url 'login' %}"><i class="fa fa-sign-in"></i> login </a>
+        </li>
+        {% endif %}
+
+        <li class="nav-item">
+          <a class="nav-link " href="{% url 'collection' %}"><i class="fa fa-cubes"></i> Collection</a>
+        </li>
+
+        <li class="nav-item">
+        </li>
+      </ul>
+      <div id="whatsapp-button" class="whatsapp-button">
+        <a href="#" id="whatsapp-link" target="_blank">
+            <i class="fa fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+    </div>
+    
+    
+    </div>
+  </div>
+</nav>
+<script>
+  document.getElementById('whatsapp-link').addEventListener('click', function(e) {
+      e.preventDefault();
+      var phone_number = '8754077819';
+      window.open('https://api.whatsapp.com/send?phone=' + phone_number, '_blank');
+  });
+</script>
